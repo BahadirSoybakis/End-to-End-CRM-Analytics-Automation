@@ -32,3 +32,43 @@ SELECT
         ELSE 'Loyal Customers'
     END AS CustomerSegment
 FROM #RFM_Scores;
+
+2. BPMN 2.0 Process Modeling
+Modeled cross-departmental business logic in Draw.io using BPMN 2.0 standards:
+
+Trigger: Customer form submission & SQL segmentation execution.
+
+Exclusive Gateway: Branching logic based on RFM results.
+
+Actions:
+
+Champions 👉 Automated personalized marketing discount campaign.
+
+At-Risk 👉 High-priority Call Center retention task creation.
+
+3. Salesforce Flow Builder Automation
+Integrated segmentation output directly into Salesforce CRM:
+
+Custom Object Management: Added Customer_Segment__c Picklist to the Contact object.
+
+Record-Triggered Flow: Configured an automated flow triggering when Customer_Segment__c equals "Risk Altındakiler".
+
+Action: Automatically generates a high-priority Task assigned to Call Center agents for immediate retention outreach.
+
+4. Power BI Executive Dashboard Architecture
+Structured a Star Schema data model (Fact_Orders, Dim_Customers, Dim_Segments) to power real-time executive decision-making.
+
+Key DAX Measures Included:
+
+Total Revenue: SUM(Fact_Orders[TotalAmount])
+
+ARPU: DIVIDE([Total Revenue], DISTINCTCOUNT(Fact_Orders[CustomerID]), 0)
+
+At-Risk Revenue: CALCULATE([Total Revenue], Dim_Segments[CustomerSegment] = "Risk Altındakiler")
+
+📈 Key Outcomes & Business Impact
+Automation: Reduced manual retention list management time to zero using event-driven Salesforce Flows.
+
+Data Integration: Seamless pipeline logic connecting raw T-SQL databases to operational CRM and executive dashboards.
+
+Proactive Engagement: Automated early-warning system for churn-risk customers.
